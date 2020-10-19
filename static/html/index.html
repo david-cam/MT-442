@@ -5,6 +5,8 @@
   <title>MusicTheory</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/audioplayer.css">
+  <script src="../js/audioplayer.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -14,6 +16,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.js"></script>
 </head>
 
 <body>
@@ -31,6 +34,9 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/playlists">Playlists</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Popular Songs</a>
@@ -59,6 +65,7 @@
   <div class="jumbotron">
     <h1>Welcome to MusicTheory!</h1>
     <p>Our webapp aims to provide a comfortable music listening experience to everyone!</p>
+    <button onclick="playSong('bday.mp3')">Play Happy Birthday!</button>
   </div>
 
   <div class="row">
@@ -95,7 +102,7 @@
         <div class="card">
           <div class="card-body text-center">
             <h4 class="card-title">See more...</h3>
-              <a href="#" class="card-link">Click here!</a>
+              <a href="/playlists" class="card-link">Click here!</a>
           </div>
         </div>
       </div>
@@ -149,8 +156,28 @@
     <div class="col-1"></div>
   </div>
 
+  <div>They said to put easter eggs in.</div>
+  <div>To improve the user experience.</div>
+  <div>This will be covered by the music player, but it helps keep the albums above it.</div>
+  <div>So yeah, we will see if this stays in.</div>
+
   <nav class="navbar fixed-bottom navbar-light bg-dark">
-    <a class="navbar-brand" href="#">Fixed bottom</a>
+    <div class="col-1">
+      <h4 style="color: white; text-align: center;">Previous</h2>
+    </div>
+    <div class="col-2">
+      <h2 id="song-title" style="color: white; text-align: center;">No Song Selected</h2>
+      <h3 id="artist-name" style="color: white; text-align: center;"></h3>
+    </div>
+    <div class="col-1">
+      <h4 style="color: white; text-align: center;">Next</h2>
+    </div>
+    <div class="container-audio col-7">
+      <audio controls autoplay loop id="player">
+          <source src="" type="audio/mp3">
+          Your browser dose not Support the audio Tag
+      </audio>
+  </div>
   </nav>
 </body>
 

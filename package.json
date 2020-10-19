@@ -4,7 +4,8 @@
   "description": "web application for interactive music listening",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+       "start": "node app.js"
+       "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/UB-CSE/course-project-musictheory#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "howler": "^2.2.0"
   }
 }
