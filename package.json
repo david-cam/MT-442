@@ -19,5 +19,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "howler": "^2.2.0"
+  },
+    "engines": {
+    "node": "10.x"
   }
 }
