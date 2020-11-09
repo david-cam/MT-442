@@ -10,8 +10,6 @@ const app = express();
 
 //define the modules we use
 const bcrypt = require('bcryptjs')
-var s3 = require('s3');
-
 const UserModel = require('./model/user')
 
 //initialize some of the modules we use
@@ -23,16 +21,6 @@ const { log } = require('console');
 
 var SpotifyWebApi = require('spotify-web-api-node');
 const hbs = require('hbs');
-
-
-// Set up s3 credentials
-var client = s3.createClient({  
-  s3Options: {
-    accessKeyId: AKIAJL2BLHBUT7C3VPXA,
-    secretAccessKey: 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
-  }
-});
-
 
 //routes for our pages
 const searchRoutes= require('./routes/searchRoutes');
@@ -73,33 +61,6 @@ app.get('/',function(req,res){
       });
   
   });
-  
-  
-//S3 Stream
-app.get('/audio', function(req, res) {
-
-  var params = {
-    Bucket: 'music442',
-    Key: 'aLiarsFuneral.mp3'
-  };
-
-  var downloadStream = client.downloadStream(params);
-
-  downloadStream.on('error', function() {
-    res.status(404).send('Not Found');
-  });
-  downloadStream.on('httpHeaders', function(statusCode, headers, resp) {
-    // Set Headers
-    res.set({
-      'Content-Type': headers['content-type']
-    });
-  });
-  
-    // Pipe download stream to response
-  downloadStream.pipe(res);
- 
- });
-
 
 
 // -----------------SpotifyAPI --------------------------------------------------------------------
