@@ -8,7 +8,7 @@ const port = process.env.port || 3000 ;
 const app = express();
 
 //define the modules we use
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const UserModel = require('./model/user')
 
 //initialize some of the modules we use
