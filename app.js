@@ -28,8 +28,8 @@ const hbs = require('hbs');
 // Set up s3 credentials
 var client = s3.createClient({  
   s3Options: {
-    accessKeyId: AKIAJL2BLHBUT7C3VPXA,
-    secretAccessKey: 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
+    accessKeyId: config.key,
+    secretAccessKey: config.secret
   }
 });
 
@@ -79,7 +79,7 @@ app.get('/',function(req,res){
 app.get('/audio', function(req, res) {
 
   var params = {
-    Bucket: 'music442',
+    Bucket: 'config.bucket',
     Key: 'aLiarsFuneral.mp3'
   };
 
