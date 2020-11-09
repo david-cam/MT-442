@@ -78,29 +78,29 @@ app.get('/',function(req,res){
   
   
 //S3 Stream
-app.get('/audio', function(req, res) {
+// app.get('/audio', function(req, res) {
 
-  var params = {
-    Bucket: 'config.bucket',
-    Key: 'aLiarsFuneral.mp3'
-  };
+//   var params = {
+//     Bucket: 'config.bucket',
+//     Key: 'aLiarsFuneral.mp3'
+//   };
 
-  var downloadStream = client.downloadStream(params);
+//   var downloadStream = client.downloadStream(params);
 
-  downloadStream.on('error', function() {
-    res.status(404).send('Not Found');
-  });
-  downloadStream.on('httpHeaders', function(statusCode, headers, resp) {
-    // Set Headers
-    res.set({
-      'Content-Type': headers['content-type']
-    });
-  });
+//   downloadStream.on('error', function() {
+//     res.status(404).send('Not Found');
+//   });
+//   downloadStream.on('httpHeaders', function(statusCode, headers, resp) {
+//     // Set Headers
+//     res.set({
+//       'Content-Type': headers['content-type']
+//     });
+//   });
   
-    // Pipe download stream to response
-  downloadStream.pipe(res);
+//     // Pipe download stream to response
+//   downloadStream.pipe(res);
  
- });
+//  });
 
 
 
