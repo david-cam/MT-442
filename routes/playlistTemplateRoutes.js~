@@ -3,7 +3,7 @@ const router= express.Router();
 
 
 router.get('/',function(req, res) {
-    res.render("./PlaylistTemplate.ejs")
+    res.render("./playlistTemplate.ejs")
 });
 
 
